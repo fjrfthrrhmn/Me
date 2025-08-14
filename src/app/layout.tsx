@@ -1,19 +1,9 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import type { Metadata } from 'next';
 import Providers from '@/components/layouts/Providers';
 import { getLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import { FONT_MONO, FONT_SANS } from '@/common/constants/font';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -27,8 +17,8 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   return (
-    <html lang={locale}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang={locale} suppressHydrationWarning={true}>
+      <body className={`${FONT_SANS.variable} ${FONT_MONO.variable} antialiased`}>
         <NextIntlClientProvider locale={locale}>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>

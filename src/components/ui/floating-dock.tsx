@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { IconLayoutNavbarCollapse, IconList } from '@tabler/icons-react';
+import { IconList } from '@tabler/icons-react';
 import { LucideIcon } from 'lucide-react';
 import { AnimatePresence, MotionValue, motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import Link from 'next/link';
@@ -152,7 +152,7 @@ function IconContainer({ mouseX, title, icon: Icon, href, onClick }: Items & { m
     return (
       <Tooltip>
         <TooltipTrigger>
-          <Link href={href}>
+          <Link href={href} aria-label={title}>
             <motion.div
               ref={ref}
               style={{ width, height }}
@@ -162,6 +162,7 @@ function IconContainer({ mouseX, title, icon: Icon, href, onClick }: Items & { m
             >
               <motion.div style={{ width: widthIcon, height: heightIcon }} className="flex items-center justify-center">
                 <Icon size={32} />
+                <span className="sr-only">{title}</span>
               </motion.div>
             </motion.div>
           </Link>
@@ -189,8 +190,8 @@ function IconContainer({ mouseX, title, icon: Icon, href, onClick }: Items & { m
   if (onClick)
     return (
       <Tooltip>
-        <TooltipTrigger asChild>
-          <button onClick={onClick} name={title}>
+        <TooltipTrigger asChild name={title}>
+          <button onClick={onClick} aria-label={title} type='button' role='button'>
             <motion.div
               ref={ref}
               style={{ width, height }}

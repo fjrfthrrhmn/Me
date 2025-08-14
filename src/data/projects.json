@@ -1,0 +1,79 @@
+[
+  {
+    "id": "1",
+    "title": "Animated Theme Toggler",
+    "description": "npx shadcn@latest add https://magicui.design/r/animated-theme-toggler",
+    "techStack": ["TypeScript", "TailwindCSS", "Shadcn UI"],
+    "repoUrl": "https://github.com/example/theme-toggler",
+    "liveUrl": "https://theme-toggler-demo.vercel.app",
+    "imageUrl": "https://picsum.photos/400/300?1",
+    "createdAt": "2025-08-01T10:00:00Z",
+    "updatedAt": "2025-08-10T14:00:00Z"
+  },
+  {
+    "id": "2",
+    "title": "Portfolio Website",
+    "description": "Personal portfolio site with animations and blog integration.",
+    "techStack": ["Next.js", "TypeScript", "Framer Motion"],
+    "repoUrl": "https://github.com/example/portfolio",
+    "liveUrl": "https://portfolio.example.com",
+    "imageUrl": "https://picsum.photos/400/300?2",
+    "createdAt": "2025-07-15T09:00:00Z",
+    "updatedAt": "2025-08-05T11:30:00Z"
+  },
+  {
+    "id": "3",
+    "title": "Task Management App",
+    "description": "Full-stack Kanban app with drag-and-drop support.",
+    "techStack": ["React", "Node.js", "PostgreSQL", "Prisma"],
+    "repoUrl": "https://github.com/example/task-app",
+    "liveUrl": "https://tasks.example.com",
+    "imageUrl": "https://picsum.photos/400/300?3",
+    "createdAt": "2025-06-20T08:00:00Z",
+    "updatedAt": "2025-07-25T16:00:00Z"
+  },
+  {
+    "id": "4",
+    "title": "E-commerce Platform",
+    "description": "Headless commerce site with product search and checkout.",
+    "techStack": ["Next.js", "Stripe", "Supabase"],
+    "repoUrl": "https://github.com/example/ecommerce",
+    "liveUrl": "https://shop.example.com",
+    "imageUrl": "https://picsum.photos/400/300?4",
+    "createdAt": "2025-05-10T07:00:00Z",
+    "updatedAt": "2025-07-01T12:45:00Z"
+  },
+  {
+    "id": "5",
+    "title": "Chat Application",
+    "description": "Real-time chat app with WebSocket and offline mode.",
+    "techStack": ["React", "NestJS", "MongoDB", "Socket.io"],
+    "repoUrl": "https://github.com/example/chat-app",
+    "liveUrl": "https://chat.example.com",
+    "imageUrl": "https://picsum.photos/400/300?5",
+    "createdAt": "2025-04-02T10:15:00Z",
+    "updatedAt": "2025-06-10T09:30:00Z"
+  },
+  {
+    "id": "6",
+    "title": "Blog CMS",
+    "description": "Content management system with markdown support.",
+    "techStack": ["Next.js", "Sanity.io", "TailwindCSS"],
+    "repoUrl": "https://github.com/example/blog-cms",
+    "liveUrl": "https://cms.example.com",
+    "imageUrl": "https://picsum.photos/400/300?6",
+    "createdAt": "2025-03-15T09:00:00Z",
+    "updatedAt": "2025-05-20T08:30:00Z"
+  },
+  {
+    "id": "7",
+    "title": "Finance Tracker",
+    "description": "Track income, expenses, and generate monthly reports.",
+    "techStack": ["React Native", "Expo", "SQLite"],
+    "repoUrl": "https://github.com/example/finance-tracker",
+    "liveUrl": "https://finance.example.com",
+    "imageUrl": "https://picsum.photos/400/300?7",
+    "createdAt": "2025-02-20T07:00:00Z",
+    "updatedAt": "2025-04-01T10:45:00Z"
+  }
+]

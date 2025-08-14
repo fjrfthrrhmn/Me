@@ -1,6 +1,6 @@
 import { IconBriefcase, IconCertificate, IconDashboard, IconFolderCode, IconStack, IconUser } from '@tabler/icons-react';
 import { FloatingDock } from '../ui/floating-dock';
-import { LucideLanguages, Moon } from 'lucide-react';
+import { LucideLanguages, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { handleChangeTheme } from '@/common/hooks/useTheme';
 
@@ -43,7 +43,7 @@ const Navigation = () => {
   const navClick = [
     {
       title: 'Toggle Theme',
-      icon: Moon,
+      icon: theme === 'light' ? Moon : Sun,
       onClick: (e: React.MouseEvent<HTMLElement>) => handleChangeTheme(theme, setTheme, e.currentTarget as HTMLElement),
     },
     {
@@ -55,7 +55,7 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="absolute bottom-6 z-50 w-full h-max mx-auto">
+      <nav className="fixed bottom-6 z-50 w-full h-max mx-auto">
         <div className="w-full mx-auto flex gap-2 justify-end md:justify-center px-2 sm:px-4 md:w-max">
           <FloatingDock items={navLinks} />
           <div className="hidden md:block">
