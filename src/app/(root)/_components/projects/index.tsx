@@ -9,13 +9,14 @@ import { useProjectStore } from './ProjectStore';
 import ProjectControls from './ProjectControls';
 
 const Projects = () => {
+  // use use server
   // const { websites, isLoading } = useGetDesignProjects();
   const { websites, isLoading } = useGetWebsiteProjects();
   const type = useProjectStore(state => state.projectType);
 
   return (
     <>
-      <Container className="py-20 space-y-12">
+      <Container className="space-y-10">
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
           <Title
             text="Daftar Proyek List"
