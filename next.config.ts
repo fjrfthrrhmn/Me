@@ -3,8 +3,10 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  images: {
+    domains: ['api.microlink.io'],
+  },
 };
 
-// const withNextIntl = createNextIntlPlugin('./src/i18n/request');
 const withNextIntl = createNextIntlPlugin();
 export default withNextIntl(nextConfig);

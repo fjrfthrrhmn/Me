@@ -1,4 +1,5 @@
-'use client'
+'use client';
+import Footer from '@/components/layouts/Footer';
 import Navigation from '@/components/layouts/Navigation';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -6,6 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Navigation />
       {children}
+      <Footer />
     </>
   );
 }
