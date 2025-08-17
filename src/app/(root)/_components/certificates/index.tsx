@@ -13,11 +13,9 @@ const Certificates = async () => {
 
   return (
     <section>
-      <Container>
-        <div className="flex flex-col gap-10 mb-10">
-          <Title text="Hello World" desc="lorem ipsum dolor" icon={IconCertificate} />
-          <Separator />
-        </div>
+      <Container className="space-y-10 mb-10">
+        <Title text="Hello World" desc="lorem ipsum dolor" icon={IconCertificate} iconSize={32} />
+        <Separator />
       </Container>
 
       <div className="relative">

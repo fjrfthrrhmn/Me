@@ -27,11 +27,11 @@ const CertificatesList = async ({ data }: CertificatesListProps) => {
 
   return (
     <ScrollArea className="w-full whitespace-nowrap rounded-2xl">
-      <div className="grid grid-flow-col auto-cols-[minmax(200px,1fr)] sm:auto-cols-[minmax(300px,1fr)] lg:auto-cols-[minmax(400px,1fr)] grid-rows-2 gap-4 p-4 mb-4 rounded-2xl">
+      <div className="grid grid-flow-col auto-cols-[minmax(200px,1fr)] sm:auto-cols-[minmax(300px,1fr)] lg:auto-cols-[minmax(350px,1fr)] grid-rows-2 gap-4 p-4 mb-4 rounded-2xl">
         {data.map(item => (
           <div
             key={item.id}
-            className="group relative w-full h-32 sm:h-52 lg:h-56 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+            className="group relative w-full h-32 sm:h-48 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
           >
             <Image
               src={item.imageUrl}
@@ -46,8 +46,8 @@ const CertificatesList = async ({ data }: CertificatesListProps) => {
             />
             <div className="hidden sm:flex absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity *:text-background">
               <div className="mb-2">
-                <Typography.Text>{item.issuer || 'unknown'}</Typography.Text>
-                <Typography.Title variant="3/black">{item.name}</Typography.Title>
+                <Typography.Text variant='xs/normal'>{item.issuer || 'unknown'}</Typography.Text>
+                <Typography.Title variant="5/black">{item.name}</Typography.Title>
               </div>
               {/* <Typography.Text>
                   {new Date(item.date).toLocaleDateString('id-ID', {
@@ -57,7 +57,7 @@ const CertificatesList = async ({ data }: CertificatesListProps) => {
                 </Typography.Text> */}
 
               {/* for item description */}
-              <Typography.Text variant="sm/normal">
+              <Typography.Text variant="xs/normal">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui ut dolores, ad illo id excepturi.
               </Typography.Text>
             </div>
