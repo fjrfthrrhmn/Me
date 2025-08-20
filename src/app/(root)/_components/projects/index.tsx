@@ -11,7 +11,7 @@ import ProjectControls from './ProjectControls';
 const Projects = () => {
   // use use server
   // const { websites, isLoading } = useGetDesignProjects();
-  const { websites, isLoading } = useGetWebsiteProjects();
+  const { websites } = useGetWebsiteProjects();
   const type = useProjectStore(state => state.projectType);
 
   return (

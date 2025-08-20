@@ -2,9 +2,11 @@ import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/main';
 import { Separator } from '@/components/ui/separator';
 import { Title } from '@/components/ui/title';
-import { ArrowRight, Monitor, User } from 'lucide-react';
-import Typography from '@/components/ui/typography';
+import { ArrowDown, ArrowRight, User } from 'lucide-react';
+import { NumberTicker } from '@/components/fragments/NumberTicker';
+import { ROLES, STATS } from '@/common/constants/about';
 import Image from 'next/image';
+import Typography from '@/components/ui/typography';
 
 const About = () => {
   return (
@@ -13,7 +15,6 @@ const About = () => {
         <Title text="About Me" desc="Lorem ispum dolor anjay mabar" icon={User} />
         <Separator />
 
-        {/* Profile */}
         <div className="grid grid-cols-6 gap-10">
           <div className="relative col-span-3 flex items-center justify-center">
             <Image
@@ -29,11 +30,15 @@ const About = () => {
           <div className="relative col-span-3">
             <div className="flex flex-col gap-4 mb-6">
               <div className="flex gap-1 items-center">
-                {['Designer', 'Fullstack Developer'].map(item => {
+                {ROLES.map((item, index) => {
                   return (
-                    <Typography.Text variant='xs/normal' key={item} className="bg-indigo-500/25 text-indigo-500 rounded px-4 py-1.5 flex items-center gap-2">
-                      <Monitor size={16} />
-                      {item}
+                    <Typography.Text
+                      key={index}
+                      variant="xs/normal"
+                      className={`${item.color} rounded px-4 py-1.5 flex items-center gap-2`}
+                    >
+                      <item.icon size={16} />
+                      {item.label}
                     </Typography.Text>
                   );
                 })}
@@ -45,17 +50,30 @@ const About = () => {
               </Typography.Text>
             </div>
 
-            <Button>
-              See Portfolio! <ArrowRight />
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button>
+                See Portfolio! <ArrowRight />
+              </Button>
+              <Button variant={'outline'}>
+                Whats i created! <ArrowDown />
+              </Button>
+            </div>
           </div>
         </div>
 
         {/* Card Experiences: [Year, Projects and Clients] */}
-        <div className="grid grid-cols-3 gap-2">
-          <div className="border rounded-lg flex justify-center items-center py-16">Year</div>
-          <div className="border rounded-lg flex justify-center items-center py-16">Projects</div>
-          <div className="border rounded-lg flex justify-center items-center py-16">Clients</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {STATS.map((stat, index) => (
+            <div key={index} className="bg-secondary/50 border rounded-lg p-6 flex flex-row justify-center items-center gap-4">
+              <Typography.Title variant="1/black" className="text-center flex items-center justify-center">
+                <NumberTicker value={parseInt(stat.value, 10)} />
+              </Typography.Title>
+              <div className="mt-2">
+                <Typography.Text variant="lg/bold">{stat.label}</Typography.Text>
+                <Typography.Text variant="sm/normal">{stat.description}</Typography.Text>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </Container>

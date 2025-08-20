@@ -12,13 +12,9 @@ interface CertificateItem {
   imageUrl: string;
 }
 
-interface CertificatesListProps {
-  data: CertificateItem[];
-}
-
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-const CertificatesList = async ({ data }: CertificatesListProps) => {
+const CertificatesList = async ({ data }: { data: CertificateItem []}) => {
   await delay(2000);
 
   if (!data || data.length === 0) {
@@ -46,7 +42,7 @@ const CertificatesList = async ({ data }: CertificatesListProps) => {
             />
             <div className="hidden sm:flex absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity *:text-background">
               <div className="mb-2">
-                <Typography.Text variant='xs/normal'>{item.issuer || 'unknown'}</Typography.Text>
+                <Typography.Text variant="xs/normal">{item.issuer || 'unknown'}</Typography.Text>
                 <Typography.Title variant="5/black">{item.name}</Typography.Title>
               </div>
               {/* <Typography.Text>

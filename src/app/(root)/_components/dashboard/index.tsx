@@ -8,6 +8,7 @@ const Dashboard = () => {
     <Container className="space-y-10">
       <div className="flex justify-between items-center">
         <Title text="Dashboard" desc="lotem ipsum dolor" icon={LayoutGrid} />
+        
         <div className="flex gap-2">
           <span>Github</span>
           <span>MonkeyType</span>

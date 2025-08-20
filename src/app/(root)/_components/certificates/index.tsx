@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 import CertificatesList from './CertificatesList';
 
 const Certificates = async () => {
-  const res = await fetch('http://localhost:3000/api/certificates', { cache: 'no-store' }); // 1 day
+  const res = await fetch('http://localhost:3000/api/certificates', { next: { revalidate: 60 * 60 } });
   const data = await res.json();
 
   return (
@@ -19,7 +19,6 @@ const Certificates = async () => {
       </Container>
 
       <div className="relative">
-        {/* Scrollable area */}
         <div className="pl-[calc((100vw-1024px)/2)]">
           <Suspense fallback={<div className="py-12 text-center">Loading certificates...</div>}>
             <CertificatesList data={data.data || []} />
