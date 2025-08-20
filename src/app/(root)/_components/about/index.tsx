@@ -15,7 +15,7 @@ const About = () => {
         <Title text="About Me" desc="Lorem ispum dolor anjay mabar" icon={User} />
         <Separator />
 
-        <div className="grid grid-cols-6 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-10">
           <div className="relative col-span-3 flex items-center justify-center">
             <Image
               src={'https://i.pinimg.com/1200x/bc/87/75/bc8775e0d865b16ed58d26a5bf08c23e.jpg'}
@@ -50,7 +50,7 @@ const About = () => {
               </Typography.Text>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex sm:items-center flex-col sm:flex-row gap-2">
               <Button>
                 See Portfolio! <ArrowRight />
               </Button>

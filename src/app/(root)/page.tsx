@@ -9,7 +9,7 @@ export default function HomePage() {
       <SkillsSection />
       <DashboardSection />
       {/* <CertificatesSection /> */}
-      <ProjectsSection />
+      {/* <ProjectsSection /> */}
     </main>
   );
 }

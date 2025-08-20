@@ -9,16 +9,14 @@ const USERNAME = 'fjrfthrrhmn'
 
 const DashboardGithub = () => {
   const { theme } = useTheme();
-  const { data } = useGithubProfile(USERNAME)
+  const { data, isLoading, isPending } = useGithubProfile(USERNAME)
 
-  console.log(data)
-
-  if (!data) return null;
+  // add condition if error
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-2">
-        <GithubProfile data={data} />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 lg:gap-x-2">
+        <GithubProfile data={data} loading={isLoading || isPending}  />
 
         <div className="col-span-2 border px-4 py-4 rounded-2xl">
           <GitHubCalendar
