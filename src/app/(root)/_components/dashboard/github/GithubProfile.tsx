@@ -3,17 +3,17 @@ import { NumberTicker } from '@/components/fragments/NumberTicker';
 import { Avatar } from '@/components/ui/avatar';
 import { Github } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
-import { AnimatePresence, motion } from 'motion/react';
 import Typography from '@/components/ui/typography';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ResGithubProfile } from '@/services/types/github';
 
 type GithubProfileProps = Pick<ResGithubProfile, 'avatar_url' | 'login' | 'html_url' | 'name' | 'public_repos' | 'location'>;
 
 export const GithubProfile = ({ data, loading }: { data?: GithubProfileProps; loading: boolean }) => {
   if (loading || !data) {
     return (
-      <div className="grid grid-rows-2 gap-2">
+      <div className="grid grid-rows-2 gap-2 h-44 col-span-2">
         <div className="border rounded-2xl p-2 sm:p-4 flex gap-2 items-center w-full">
           <Skeleton className="w-16 h-16" />
           <div className="col-span-3 flex flex-col gap-2">
@@ -33,9 +33,9 @@ export const GithubProfile = ({ data, loading }: { data?: GithubProfileProps; lo
   const { html_url, avatar_url, name, public_repos, location, login } = data;
 
   return (
-    <div className={`grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 lg:grid-rows-2 lg:grid-cols-1 gap-2`}>
+    <div className={`h-44 col-span-2 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 lg:grid-rows-2 lg:grid-cols-1 gap-2`}>
       <div className="p-2 rounded-2xl shadow border border-foreground/10 flex items-center gap-2">
-        <Avatar size="size-20" rounded="rounded-2xl">
+        <Avatar size="size-16" rounded="rounded-2xl">
           <Image
             src={avatar_url}
             alt="avatar"
@@ -48,14 +48,14 @@ export const GithubProfile = ({ data, loading }: { data?: GithubProfileProps; lo
           />
         </Avatar>
         <div className="flex flex-col">
-          <Typography.Title variant="5/black">{name}</Typography.Title>
-          <Typography.Text variant="sm/normal">{location}</Typography.Text>
+          <Typography.Title variant="6/black">{name}</Typography.Title>
+          <Typography.Text variant="xs/normal">{location}</Typography.Text>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
         <div className="p-4 rounded-2xl shadow border border-foreground/10 flex flex-col items-center justify-center gap-1">
-          <Typography.Text variant="sm/normal">Repository</Typography.Text>
+          <Typography.Text variant="xs/normal">Repository</Typography.Text>
           <NumberTicker value={public_repos} className="font-mono text-3xl font-bold" />
         </div>
 

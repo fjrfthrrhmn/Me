@@ -62,7 +62,7 @@ const TitleStyles = cva(['leading-none'], {
   },
 });
 
-const TextStyles = cva(['leading-normal text-pretty'], {
+const TextStyles = cva(['leading-normal text-pretty text-zinc-600 dark:text-zinc-400'], {
   variants: {
     size: {
       xl: 'text-xl',

@@ -11,14 +11,16 @@ const DashboardGithub = () => {
   const { theme } = useTheme();
   const { data, isLoading, isPending } = useGithubProfile(USERNAME)
 
+  console.log(data)
+
   // add condition if error
 
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 lg:gap-x-2">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-y-4 lg:gap-y-0 lg:gap-x-2">
         <GithubProfile data={data} loading={isLoading || isPending}  />
 
-        <div className="col-span-2 border px-4 py-4 rounded-2xl">
+        <div className="col-span-3 border p-4 rounded-2xl h-44">
           <GitHubCalendar
             transformData={data => data}
             colorScheme={theme === 'dark' ? 'dark' : 'light'}

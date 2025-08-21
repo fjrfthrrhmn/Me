@@ -1,4 +1,4 @@
-type ResGithubProfile = {
+export type ResGithubProfile = {
   login: string;
   id: number;
   node_id: string;

@@ -12,11 +12,17 @@ const Providers = ({ children }: ProvidersProps) => {
     () =>
       new QueryClient({
         defaultOptions: {
-          queries: {},
+          queries: {
+            networkMode: 'online',
+            staleTime: 1000 * 60 * 5,
+            gcTime: 1000 * 60 * 30,
+            refetchOnWindowFocus: false,
+            refetchOnReconnect: true,
+          },
         },
       })
   );
-
+  
   return (
       <QueryClientProvider client={queryClient}>
         <ThemeProvider disableTransitionOnChange defaultTheme="system" enableSystem storageKey="theme" attribute="class">
