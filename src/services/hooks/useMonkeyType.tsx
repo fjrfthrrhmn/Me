@@ -10,11 +10,9 @@ import { AxiosError } from 'axios';
  * @returns
  */
 export function useMonkeyTypeProfile(username: string) {
-  const TOKEN = 'NjhhNWE3ZTE4OTVmZjM3NGZjYjQ3YjNlLnlyemZwenVGSWhleTcxUVJwdl9janpBN1llbHo5TGlL';
-
   const { data, ...rest } = useQuery<ResMonkeyTypeProfile, AxiosError>({
     queryKey: ['MonkeyType Profile'],
-    queryFn: async () => fetcherMonkeyType<ResMonkeyTypeProfile>(`${username}/profile`, TOKEN),
+    queryFn: async () => fetcherMonkeyType<ResMonkeyTypeProfile>(`${username}/profile`),
     enabled: !!username,
   });
 
@@ -27,11 +25,9 @@ export function useMonkeyTypeProfile(username: string) {
  * @returns
  */
 export function useMonkeyTypeStreak() {
-  const TOKEN = 'NjhhNWE3ZTE4OTVmZjM3NGZjYjQ3YjNlLnlyemZwenVGSWhleTcxUVJwdl9janpBN1llbHo5TGlL';
-
   const { data, ...rest } = useQuery({
     queryKey: ['MonkeyType Streak'],
-    queryFn: async () => fetcherMonkeyType('streak', TOKEN),
+    queryFn: async () => fetcherMonkeyType('streak'),
   });
 
   return { data, ...rest };

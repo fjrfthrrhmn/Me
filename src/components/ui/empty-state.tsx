@@ -12,7 +12,7 @@ export default function EmptyState({
       <Image src={'./No data.svg'} alt="Not Found Illustration" width={400} height={400} className="mb-4" />
       <div className="space-y-2">
         <Typography.Title variant="5/black">{text}</Typography.Title>
-        <Typography.Text>{desc}</Typography.Text>
+        <Typography.Text variant='sm/normal'>{desc}</Typography.Text>
       </div>
     </div>
   );

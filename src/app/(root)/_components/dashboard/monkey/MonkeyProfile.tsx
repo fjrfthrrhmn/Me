@@ -1,48 +1,71 @@
 import { CardCustom } from '@/components/fragments/CardCustom';
 import { Avatar } from '@/components/ui/avatar';
 import { ResMonkeyTypeProfile } from '@/services/types/monkeytype';
-import { formatDate, getBestStats } from './utils';
+import { calculateXPProgress, formatDate, getBestStats } from './utils';
 import { buildStatsConfig } from './config';
 import Typography from '@/components/ui/typography';
 import Image from 'next/image';
+import { Separator } from '@/components/ui/separator';
 
 type MonkeyProfileProps = Pick<ResMonkeyTypeProfile, 'data'>;
 
 const MonkeyProfile = ({ data }: MonkeyProfileProps) => {
-  const { name, addedAt, personalBests } = data;
-  const { bestAccuracy, bestWPM } = getBestStats(personalBests)
+  const { name, addedAt, personalBests, xp, maxStreak } = data;
+  const { bestAccuracy, bestWPM } = getBestStats(personalBests);
+  const { percentage, nextLevelXP, level } = calculateXPProgress(xp);
   const stats = buildStatsConfig(data, bestWPM, bestAccuracy);
 
   return (
     <CardCustom className="h-max">
-      <div className="grid grid-cols-6 items-center gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-6 items-center gap-y-4">
         {/* === Col 1: Profile === */}
-        <div className="flex flex-col border-e-2 col-span-2">
+        <div className="lg:border-r lg:col-span-2">
           <div className="flex gap-4 items-center">
             <Avatar rounded="rounded-2xl">
-              <Image src="https://avatars.githubusercontent.com/u/151801563?v=4" alt="avatar" width={100} height={100} unoptimized />
+              <Image
+                src="https://i.pinimg.com/736x/11/a0/9c/11a09c9e8c4a3e99f4b29d299a3f71ca.jpg"
+                alt="avatar"
+                width={100}
+                height={100}
+                className="h-full w-full bg-cover bg-center"
+                loading="lazy"
+                quality={100}
+                unoptimized
+              />
             </Avatar>
             <div>
               <Typography.Title variant="5/black" className="font-mono capitalize">
                 {name}
               </Typography.Title>
               <Typography.Text variant="xs/normal">Joined {formatDate(addedAt)}</Typography.Text>
-              <Typography.Text variant="xs/normal">Current streak: 2 days</Typography.Text>
+
+              <div className="bg-orange-500/10 px-2 py-0.5 rounded-2xl mt-2">
+                <Typography.Text variant="xs/bold" className="text-orange-500 flex items-center gap-2">
+                  <span>🔥</span>
+                  Streak: {maxStreak} days
+                </Typography.Text>
+              </div>
             </div>
           </div>
 
           {/* Progress bar */}
-          <div className="flex items-center gap-2 mt-4 w-3/4">
-            <Typography.Text variant="sm/bold">10</Typography.Text>
+          <div className="flex items-center gap-2 mt-4 w-[90%]">
+            <Typography.Text variant="sm/semibold" className="min-w-max">
+              Lvl {level}
+            </Typography.Text>
             <div className="bg-muted w-full h-1.5 rounded-full">
-              <div className="w-1/3 h-1.5 rounded-full bg-teal-300" />
+              <div className="h-2 bg-highlight rounded-full transition-all" style={{ width: `${percentage}%` }} />
             </div>
-            <Typography.Text variant="xs/normal">545/4.3K</Typography.Text>
+            <Typography.Text variant="xs/normal">
+              {xp}/{nextLevelXP}
+            </Typography.Text>
           </div>
         </div>
 
+        <Separator className="my-4 block lg:hidden" />
+
         {/* === Col 2: Stats (Best WPM & Accuracy) === */}
-        <div className="flex justify-around items-center *:text-center col-span-4 h-full">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-4 *:text-center lg:col-span-4 h-full">
           {stats.map(item => (
             <div key={item.label} className="flex flex-col justify-center items-center gap-2 *:text-center">
               <item.icon size={30} />

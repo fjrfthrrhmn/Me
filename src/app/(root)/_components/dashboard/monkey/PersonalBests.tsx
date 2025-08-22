@@ -9,7 +9,7 @@ type PersonalBestsProps = Pick<ResMonkeyTypeProfile['data'], 'personalBests'>;
 
 const PersonalBests = ({ personalBests }: PersonalBestsProps) => {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
       {Object.entries(personalBests).map(([category, categoryData], index) => {
         return (
           <CardCustom key={category} className="grid grid-cols-3 gap-4">
@@ -89,7 +89,7 @@ const PersonalBestItem = ({ value, category, subCategory }: PersonalBestItemProp
             {subCategory} {category}
           </Typography.Text>
           <Typography.Title variant="2/black">
-            <NumberTicker value={Number(stats.wpm)} className="font-mono text-teal-400 dark:text-teal-400 py-2" />
+            <NumberTicker value={Number(stats.wpm)} className="font-mono text-highlight dark:text-highlight py-2" />
           </Typography.Title>
           <Typography.Text variant="xs/normal" className="mt-2">
             Hover for details
@@ -97,17 +97,17 @@ const PersonalBestItem = ({ value, category, subCategory }: PersonalBestItemProp
         </div>
       </TooltipTrigger>
 
-      <TooltipContent side="bottom" className="min-w-2xs">
+      <TooltipContent side="bottom" className="min-w-xs">
         <div className="space-y-3">
           <div className="grid grid-cols-2">
             {hoverStats.map((item, i) => (
-              <div key={item.name} className={`space-y-2 ${i === 0 ? 'border-e border-border pe-4' : 'ps-4'}`}>
+              <div key={item.name} className={`space-y-2 ${i === 0 ? 'border-e border-zinc-600 pe-4' : 'ps-4'}`}>
                 {item.items.map(item => (
                   <div key={item.label} className="flex justify-between">
-                    <Typography.Text variant="xs/normal" className="text-primary-foreground">
+                    <Typography.Text variant="xs/normal" className="text-background">
                       {item.label}:
                     </Typography.Text>
-                    <Typography.Text variant="xs/normal" className="text-primary-foreground font-mono">
+                    <Typography.Text variant="xs/normal" className="text-background capitalize font-mono">
                       {item.value}
                     </Typography.Text>
                   </div>

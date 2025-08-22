@@ -18,6 +18,7 @@ const Providers = ({ children }: ProvidersProps) => {
             gcTime: 1000 * 60 * 30,
             refetchOnWindowFocus: false,
             refetchOnReconnect: true,
+            retry: false
           },
         },
       })

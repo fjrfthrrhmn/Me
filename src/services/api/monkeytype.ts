@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { API_CONFIG } from '../config/api';
 
-export async function fetcherMonkeyType<T>(endpoint: string, token: string) {
-  const URL = `https://api.monkeytype.com/users/${endpoint}`;
+export async function fetcherMonkeyType<T>(endpoint: string) {
+  const URL = `${API_CONFIG.monkeytype.base}${endpoint}`;
   
   const { data } = await axios.get(URL, {
     headers: {
-      Authorization: `ApeKey ${token}`,
+      Authorization: `ApeKey ${API_CONFIG.monkeytype.key}`,
     },
   });
 
