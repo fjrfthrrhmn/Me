@@ -3,16 +3,20 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 export const DotGrid = () => {
-  const { theme } = useTheme();
-  const [activeTheme, setActiveTheme] = useState(theme);
+  const { resolvedTheme } = useTheme();
+  const [activeTheme, setActiveTheme] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    // delay update to allow fade-out of old theme
-    const timeout = setTimeout(() => setActiveTheme(theme), 100);
+    if (!resolvedTheme) return;
+    // small delay so fade transition looks smooth
+    const timeout = setTimeout(() => setActiveTheme(resolvedTheme), 100);
     return () => clearTimeout(timeout);
-  }, [theme]);
+  }, [resolvedTheme]);
+
+  if (!activeTheme) return null; // prevent flicker on first render
 
   const isDark = activeTheme === 'dark';
 
@@ -23,7 +27,7 @@ export const DotGrid = () => {
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         <motion.div
           key={activeTheme}
           initial={{ opacity: 0 }}
@@ -50,7 +54,7 @@ export const DotGrid = () => {
   );
 };
 
-import { cn } from '@/lib/utils';
+
 
 /**
  *  DotPattern Component Props

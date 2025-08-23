@@ -6,9 +6,9 @@ import Navigation from '@/components/layouts/Navigation';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      {/* <div className="absolute inset-0 w-full h-full -z-50">
+      <div className="absolute inset-0 w-full h-full -z-50">
         <DotGrid />
-      </div> */}
+      </div>
       <Navigation />
       {children}
       {/* <Footer /> */}

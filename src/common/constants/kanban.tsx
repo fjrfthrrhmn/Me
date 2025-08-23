@@ -1,10 +1,7 @@
-import { BentoCard, BentoGrid } from '@/components/ui/bento-grid';
-import { Container } from '@/components/ui/main';
-import { Title } from '@/components/ui/title';
 import { InputIcon } from '@radix-ui/react-icons';
-import { BellIcon, CalendarIcon, FileTextIcon, GlobeIcon, LayoutGrid } from 'lucide-react';
+import { BellIcon, CalendarIcon, FileTextIcon, GlobeIcon, KanbanSquare, LayoutGrid } from 'lucide-react';
 
-const features = [
+export const FEATURES = [
   {
     Icon: FileTextIcon,
     name: 'Save your files',
@@ -51,19 +48,3 @@ const features = [
     className: 'lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4',
   },
 ];
-
-const Kaban = () => {
-  return (
-    <Container className="space-y-10">
-      <Title text="Kaban" desc="lotem ipsum dolor" icon={LayoutGrid} />
-
-      <BentoGrid className="lg:grid-rows-3">
-        {features.map(feature => (
-          <BentoCard key={feature.name} {...feature} />
-        ))}
-      </BentoGrid>
-    </Container>
-  );
-};
-
-export default Kaban;

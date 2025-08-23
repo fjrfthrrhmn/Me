@@ -9,10 +9,10 @@ type PersonalBestsProps = Pick<ResMonkeyTypeProfile['data'], 'personalBests'>;
 
 const PersonalBests = ({ personalBests }: PersonalBestsProps) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
       {Object.entries(personalBests).map(([category, categoryData], index) => {
         return (
-          <CardCustom key={category} className="grid grid-cols-3 gap-4">
+          <CardCustom key={category} className="grid grid-cols-3 gap-2">
             {Object.entries(categoryData)
               .slice(1)
               .map(([subCategory, subCategoryData], index) => (

@@ -23,7 +23,7 @@ const CertificatesList = async ({ data }: { data: CertificateItem []}) => {
 
   return (
     <ScrollArea className="w-full whitespace-nowrap rounded-2xl">
-      <div className="grid grid-flow-col auto-cols-[minmax(200px,1fr)] sm:auto-cols-[minmax(300px,1fr)] lg:auto-cols-[minmax(350px,1fr)] grid-rows-2 gap-4 p-4 mb-4 rounded-2xl">
+      <div className="grid grid-flow-col auto-cols-[minmax(200px,1fr)] sm:auto-cols-[minmax(300px,1fr)] lg:auto-cols-[minmax(350px,1fr)] grid-rows-2 gap-2 p-4 mb-4 rounded-2xl">
         {data.map(item => (
           <div
             key={item.id}

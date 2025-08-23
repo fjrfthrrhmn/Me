@@ -1,5 +1,5 @@
 export { default as HeroSection } from './hero';
-export { default as KabanSection } from './kaban';
+export { default as KanbanSection } from './kanban';
 export { default as ProjectsSection } from './projects';
 export { default as CertificatesSection } from './certificates';
 export { default as AboutSection } from './about';

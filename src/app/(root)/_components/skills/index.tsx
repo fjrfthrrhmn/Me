@@ -14,7 +14,7 @@ const Skills = () => {
 
   return (
     <Container className="space-y-10">
-      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-2 items-center">
         <Title
           text="Skills"
           desc="Tech stack I rely on every day — plus a few I'm still growing with 🌱"

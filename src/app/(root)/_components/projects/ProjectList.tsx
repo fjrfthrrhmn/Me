@@ -11,24 +11,18 @@ interface ProjectWebsiteProps {
 export const ProjectWebsiteList = ({ data, loading }: ProjectWebsiteProps) => {
   if (loading) {
     return (
-      <main className="grid grid-cols-3 gap-4">
-        {[...Array(6)].map((item, index) => {
+      <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        {[...Array(6)].map((_, index) => {
           return (
-            <div key={index} className="space-y-6 border rounded-xl p-2">
+            <div key={index} className="space-y-4 border rounded-2xl p-2 pb-4">
               <div className="relative group overflow-hidden rounded-t-2xl">
                 <Skeleton className="w-full h-44 rounded-t-2xl" />
               </div>
 
               <div className="flex flex-col gap-2">
-                <Skeleton className="w-full h-6" />
-                <Skeleton className="w-1/2 h-6" />
+                <Skeleton className="w-4/5 h-4" />
+                <Skeleton className="w-2/5 h-4" />
               </div>
-
-              {/* <div className="flex gap-1 px-4">
-                {[...Array(3)].map(item => {
-                  return <Skeleton key={item} className="w-1/2 h-4" />;
-                })}
-              </div> */}
             </div>
           );
         })}
@@ -56,8 +50,12 @@ export const ProjectDesignList = ({ data, loading }: ProjectDesignProps) => {
   if (loading) {
     return (
       <main className="grid grid-cols-3 gap-2">
-        {[...Array(6)].map((item, index) => {
-          return <Skeleton key={index} className={`w-full h-60`} />;
+        {[...Array(6)].map((_, index) => {
+          return (
+            <div key={index} className="border-2 p-2 rounded-3xl">
+              <Skeleton className={`w-full h-60`} />
+            </div>
+          );
         })}
       </main>
     );

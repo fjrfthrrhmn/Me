@@ -17,7 +17,7 @@ const Projects = () => {
   return (
     <>
       <Container className="space-y-10">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-2 items-center">
           <Title
             text="Daftar Proyek List"
             desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, aspernatur?"

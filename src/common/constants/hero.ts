@@ -1,19 +1,37 @@
-export const STACKS_BUILT = [
-  { alt: 'Next.js', src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/images/ui/nextjs-icon.svg', url: 'https://nextjs.org/' },
+import { IconType } from 'react-icons';
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiVercel } from 'react-icons/si';
+
+interface StacksBuiltProps {
+  name: string;
+  src: string;
+  url: string;
+  icon: IconType;
+}
+
+export const STACKS_BUILT: StacksBuiltProps[] = [
   {
-    alt: 'TypeScript',
-    src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/images/ui/typescript-icon.svg',
-    url: 'https://www.typescriptlang.org/',
+    name: 'Next.js',
+    src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/images/ui/nextjs-icon.svg',
+    url: 'https://nextjs.org/',
+    icon: SiNextdotjs,
   },
   {
-    alt: 'Tailwind CSS',
+    name: 'TypeScript',
+    src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/images/ui/typescript-icon.svg',
+    url: 'https://www.typescriptlang.org/',
+    icon: SiTypescript,
+  },
+  {
+    name: 'Tailwind CSS',
     src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/images/ui/tailwind-icon.svg',
     url: 'https://tailwindcss.com/',
+    icon: SiTailwindcss,
   },
 
   {
-    alt: 'Vercel',
+    name: 'Vercel',
     src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/images/ui/vercel-icon.svg',
     url: 'https://vercel.com/',
+    icon: SiVercel,
   },
 ];

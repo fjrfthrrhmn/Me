@@ -37,18 +37,21 @@ export default Calendar;
 
 const Loader = () => {
   return (
-    <Skeleton className="col-span-3 border p-4 rounded-2xl h-full">
+    <div className="col-span-3 border p-2 rounded-2xl h-full">
       <div className="flex gap-2">
-        <div className="h-6 w-12 bg-background rounded-2xl mb-4" />
-        <div className="h-6 w-40 bg-background rounded-2xl mb-4" />
+        <Skeleton className="h-6 w-1/5 mb-4" />
+        <Skeleton className="h-6 w-1/2 mb-4" />
       </div>
       <ScrollArea className="h-max w-full">
-        <div className="grid grid-rows-5 grid-flow-col gap-1 w-max">
-          {Array.from({ length: 150 }).map((_, i) => (
-            <div key={i} className="h-4 w-4 bg-background rounded" />
-          ))}
+        <div className="grid grid-rows-6 grid-flow-col gap-1 w-max">
+          {Array.from({ length: 150 }).map((_, i) => {
+            const opacities = ['opacity-30', 'opacity-100', 'opacity-50', 'opacity-80'];
+            const opacity = opacities[i % opacities.length];
+
+            return <Skeleton key={i} className={`h-4 w-4 rounded ${opacity}`} />;
+          })}
         </div>
       </ScrollArea>
-    </Skeleton>
+    </div>
   );
 };

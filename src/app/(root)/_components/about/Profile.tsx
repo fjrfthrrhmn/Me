@@ -21,8 +21,8 @@ const Profile = () => {
       </div>
 
       <div className="relative col-span-3">
-        <div className="flex flex-col gap-4 mb-6">
-          <div className="flex gap-1 items-center">
+        <div className="flex flex-col gap-2 mb-6">
+          {/* <div className="flex gap-1 items-center">
             {ROLES.map((item, index) => {
               return (
                 <Typography.Text key={index} variant="xs/normal" className={`${item.color} rounded px-4 py-1.5 flex items-center gap-2`}>
@@ -31,9 +31,9 @@ const Profile = () => {
                 </Typography.Text>
               );
             })}
-          </div>
+          </div> */}
           <Typography.Title variant="2/black" className="flex items-center gap-2">
-            <span>Fajar Fathurrahman</span> <MdVerified size={24} className="text-blue-500" />
+            <span>Fajar Fathurrahman</span> <MdVerified size={24} className="text-blue-500 hidden sm:block" />
           </Typography.Title>
           <Typography.Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos molestiae quia ut numquam consectetur sit omnis, nulla aspernatur

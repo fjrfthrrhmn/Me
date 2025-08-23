@@ -18,14 +18,14 @@ const SkillList = ({ data }: { data: SkillItemProps[] }) => {
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{
-              duration: 0.7,
+              duration: 0.5,
               delay: index * 0.15,
               ease: 'easeOut',
             }}
           >
             <CardCustom
               className={cn(
-                'relative overflow-hidden z-50 flex flex-row gap-4 items-center p-4',
+                'relative overflow-hidden z-50 flex flex-row gap-2 items-center p-4',
                 'group transition-all duration-300',
                 item.grow && 'border-green-200 dark:border-green-800 border-2'
               )}

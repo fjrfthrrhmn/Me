@@ -23,7 +23,7 @@ const MonkeyProfile = ({ data }: MonkeyProfileProps) => {
       <div className="grid grid-cols-1 lg:grid-cols-6 items-center gap-y-4">
         {/* === Col 1: Profile === */}
         <div className="lg:border-r lg:col-span-2">
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-2 items-center">
             <Avatar rounded="rounded-2xl">
               <Image
                 src="https://i.pinimg.com/736x/11/a0/9c/11a09c9e8c4a3e99f4b29d299a3f71ca.jpg"

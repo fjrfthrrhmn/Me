@@ -20,7 +20,7 @@ const GithubProfile = ({ data, loading }: { data?: GithubProfileProps; loading: 
 
   return (
     <div className={`h-max col-span-2 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 lg:grid-rows-2 lg:grid-cols-1 gap-2`}>
-      <CardCustom className="p-2 rounded-2xl flex items-center gap-4">
+      <CardCustom className="p-2 rounded-2xl flex items-center gap-2">
         <Avatar size="size-20" rounded="rounded-2xl">
           <Image
             src={avatar_url}
@@ -28,7 +28,7 @@ const GithubProfile = ({ data, loading }: { data?: GithubProfileProps; loading: 
             width={70}
             height={70}
             className="h-full w-full bg-cover bg-center"
-            placeholder='blur'
+            placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             loading="lazy"
             unoptimized
@@ -70,18 +70,21 @@ const GithubProfile = ({ data, loading }: { data?: GithubProfileProps; loading: 
 export default GithubProfile;
 
 const Loader = () => (
-  <div className="grid grid-rows-2 gap-2 h-max col-span-2">
-    <Skeleton className=" p-2 sm:p-4 flex gap-2 items-center w-full">
-      <div className="rounded-2xl w-16 h-16 bg-background" />
-      <div className="col-span-3 flex flex-col gap-2">
-        <div className="rounded-2xl w-36 h-4 bg-background" />
-        <div className="rounded-2xl w-24 h-4 bg-background" />
+  <div className="grid grid-rows-2 gap-2 h-full col-span-2">
+    <div className="p-2 flex gap-2 items-center w-full border-2 rounded-2xl">
+      <Skeleton className="rounded-2xl w-20 h-20" />
+      <div className="flex flex-col gap-2">
+        <Skeleton className="rounded-2xl w-36 h-6" />
+        <Skeleton className="rounded-2xl w-24 h-4" />
       </div>
-    </Skeleton>
+    </div>
 
-    <div className="grid grid-cols-2 gap-2">
-      <Skeleton />
-      <Skeleton />
+    <div className="grid grid-cols-2">
+      {[...Array(2)].map((_, index) => (
+        <div key={index} className="w-full h-full border-2 rounded-2xl p-2">
+          <Skeleton className="h-full w-full rounded-2xl" />
+        </div>
+      ))}
     </div>
   </div>
 );
