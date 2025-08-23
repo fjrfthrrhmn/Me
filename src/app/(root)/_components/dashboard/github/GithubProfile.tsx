@@ -5,10 +5,10 @@ import { Github } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ResGithubProfile } from '@/services/types/github';
 import { CardCustom } from '@/components/fragments/CardCustom';
+import { shimmer } from '@/lib/utils';
 import Typography from '@/components/ui/typography';
 import Image from 'next/image';
 import Link from 'next/link';
-import { shimmer } from '@/lib/utils';
 
 type GithubProfileProps = Pick<ResGithubProfile, 'avatar_url' | 'login' | 'html_url' | 'name' | 'public_repos' | 'location'>;
 
@@ -25,13 +25,12 @@ const GithubProfile = ({ data, loading }: { data?: GithubProfileProps; loading: 
           <Image
             src={avatar_url}
             alt="avatar"
-            width={100}
-            height={100}
+            width={70}
+            height={70}
             className="h-full w-full bg-cover bg-center"
             placeholder='blur'
             blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             loading="lazy"
-            quality={100}
             unoptimized
           />
         </Avatar>

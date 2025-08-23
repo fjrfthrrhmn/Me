@@ -4,9 +4,9 @@ import { Title } from '@/components/ui/title';
 import { useSkillStore } from './SkillStore';
 import { IconStack } from '@tabler/icons-react';
 import { Separator } from '@/components/ui/separator';
+import { PRODUCTIVITY_TOOLS, SKILLS_STACKS } from '@/common/constants/skill';
 import SkillsControls from './SkillControls';
 import SkillList from './SkillList';
-import { PRODUCTIVITY_TOOLS, SKILLS_STACKS } from '@/common/constants/skill';
 
 const Skills = () => {
   const skillType = useSkillStore(state => state.skillType);

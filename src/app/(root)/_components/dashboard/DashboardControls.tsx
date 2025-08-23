@@ -34,7 +34,7 @@ const DashboardControls = () => {
   );
 
   return (
-    <div className="w-full h-full grid grid-cols-2 gap-4 items-center">
+    <div className="w-full h-full grid grid-cols-2 gap-2 items-center">
       {TOGGLES.map(item => {
         return (
           <Button

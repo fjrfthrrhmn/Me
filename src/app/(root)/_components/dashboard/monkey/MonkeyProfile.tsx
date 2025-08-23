@@ -6,6 +6,7 @@ import { buildStatsConfig } from './config';
 import Typography from '@/components/ui/typography';
 import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
+import { shimmer } from '@/lib/utils';
 
 type MonkeyProfileProps = Pick<ResMonkeyTypeProfile, 'data'>;
 
@@ -14,6 +15,8 @@ const MonkeyProfile = ({ data }: MonkeyProfileProps) => {
   const { bestAccuracy, bestWPM } = getBestStats(personalBests);
   const { percentage, nextLevelXP, level } = calculateXPProgress(xp);
   const stats = buildStatsConfig(data, bestWPM, bestAccuracy);
+
+  const toBase64 = (str: string) => (typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str));
 
   return (
     <CardCustom className="h-max">
@@ -25,11 +28,12 @@ const MonkeyProfile = ({ data }: MonkeyProfileProps) => {
               <Image
                 src="https://i.pinimg.com/736x/11/a0/9c/11a09c9e8c4a3e99f4b29d299a3f71ca.jpg"
                 alt="avatar"
-                width={100}
-                height={100}
+                width={70}
+                height={70}
                 className="h-full w-full bg-cover bg-center"
                 loading="lazy"
-                quality={100}
+                placeholder='blur'
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                 unoptimized
               />
             </Avatar>

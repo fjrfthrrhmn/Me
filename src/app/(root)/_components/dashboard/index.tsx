@@ -19,7 +19,8 @@ const Dashboard = () => {
           text="Dashboard"
           icon={LayoutGrid}
           desc="A centralized dashboard where your coding journey, and progress come together in one place."
-        />
+          className='col-span-2'
+       />
         <DashboardControls />
       </div>
 
