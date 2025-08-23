@@ -7,5 +7,5 @@ interface CardCustomProps {
 }
 
 export const CardCustom = ({ children, className }: CardCustomProps) => {
-  return <div className={cn('border rounded-2xl p-4 bg-card', className)}>{children}</div>;
+  return <div className={cn('border rounded-xl p-4 bg-card', className)}>{children}</div>;
 };

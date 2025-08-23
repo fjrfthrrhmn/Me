@@ -4,6 +4,7 @@ import GitHubCalendar from 'react-github-calendar';
 import { useTheme } from 'next-themes';
 import { configCalendar } from './config';
 import { Skeleton } from '@/components/ui/skeleton';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Calendar = ({ loading }: { loading: boolean }) => {
   const { theme } = useTheme();
@@ -11,8 +12,8 @@ const Calendar = ({ loading }: { loading: boolean }) => {
   if (loading) return <Loader />;
 
   return (
-    <CardCustom className="col-span-3 border p-4 rounded-2xl h-max">
-      <div className="scrollable">
+    <CardCustom className="col-span-3 border px-4 py-6 rounded-2xl h-full">
+      <div className="scrollable flex justify-center items-center h-full">
         <GitHubCalendar
           colorScheme={theme === 'dark' ? 'dark' : 'light'}
           {...configCalendar}
@@ -41,11 +42,13 @@ const Loader = () => {
         <div className="h-6 w-12 bg-background rounded-2xl mb-4" />
         <div className="h-6 w-40 bg-background rounded-2xl mb-4" />
       </div>
-      <div className="flex flex-wrap gap-1">
-        {Array.from({ length: 140 }).map((_, i) => (
-          <div key={i} className="h-4 w-4 bg-background rounded" />
-        ))}
-      </div>
+      <ScrollArea className="h-max w-full">
+        <div className="grid grid-rows-5 grid-flow-col gap-1 w-max">
+          {Array.from({ length: 150 }).map((_, i) => (
+            <div key={i} className="h-4 w-4 bg-background rounded" />
+          ))}
+        </div>
+      </ScrollArea>
     </Skeleton>
   );
 };

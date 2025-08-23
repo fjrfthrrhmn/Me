@@ -47,7 +47,7 @@ const GithubProfile = ({ data, loading }: { data?: GithubProfileProps; loading: 
           <NumberTicker value={public_repos} className="font-mono text-3xl font-bold" />
         </CardCustom>
 
-        <div className="group rounded-2xl shadow bg-radial from-foreground to-foreground/70 text-background">
+        <div className="group rounded-2xl shadow bg-radial from-foreground to-foreground/90 text-background">
           <Link
             href={html_url || '#'}
             target="_blank"

@@ -8,9 +8,7 @@ import EmptyState from '@/components/ui/empty-state';
 const DashboardGithub = () => {
   const { data, isLoading, isPending, isError } = useGithubProfile(USERNAME_GITHUB);
 
-  if (isError) {
-    return <EmptyState />;
-  }
+  if (isError) return <EmptyState />;
 
   return (
     <>

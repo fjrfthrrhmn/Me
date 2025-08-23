@@ -5,8 +5,8 @@ export default function HomePage() {
     <main className="space-y-20 py-20">
       {/* <HeroSection /> */}
       {/* <KabanSection /> */}
-      {/* <AboutSection /> */}
-      {/* <SkillsSection /> */}
+      <AboutSection />
+      <SkillsSection />
       <DashboardSection />
       {/* <CertificatesSection /> */}
       {/* <ProjectsSection /> */}

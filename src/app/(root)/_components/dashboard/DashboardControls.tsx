@@ -18,12 +18,6 @@ const TOGGLES = [
     icon: Zap,
     disabled: false,
   },
-  {
-    name: 'leetCode',
-    label: 'toggle dashboard monkey type',
-    icon: Code2,
-    disabled: true,
-  },
 ] as const;
 
 const DashboardControls = () => {
@@ -40,7 +34,7 @@ const DashboardControls = () => {
   );
 
   return (
-    <div className="w-full h-full grid grid-cols-3 gap-2 items-center">
+    <div className="w-full h-full grid grid-cols-2 gap-4 items-center">
       {TOGGLES.map(item => {
         return (
           <Button
@@ -53,7 +47,7 @@ const DashboardControls = () => {
             variant={dashboardType === item.name ? 'default' : 'outline'}
           >
             <item.icon size={20} />
-            <small className="hidden sm:block text-xs">{item.name}</small>
+            <small className="hidden sm:block text-sm">{item.name}</small>
             <span className="sr-only">{item.name}</span>
           </Button>
         );
