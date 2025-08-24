@@ -3,11 +3,12 @@ import { flushSync } from 'react-dom';
 type Theme = 'light' | 'dark' | 'system';
 
 export const handleChangeTheme = async (currentTheme: string | undefined, setTheme: (theme: Theme) => void, buttonRef: HTMLElement) => {
-  if (!buttonRef.getBoundingClientRect() && !currentTheme) return;
+  const isDark = document.documentElement.classList.contains('dark');
+  const effectiveTheme = currentTheme === 'system' || !currentTheme ? (isDark ? 'dark' : 'light') : currentTheme;
 
   await document.startViewTransition(() => {
     flushSync(() => {
-      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      setTheme(effectiveTheme === 'dark' ? 'light' : 'dark');
     });
   }).ready;
 

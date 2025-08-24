@@ -1,4 +1,14 @@
-import { ProjectsSection, CertificatesSection, AboutSection, SkillsSection, DashboardSection, KanbanSection, HeroSection } from "./_components";
+import { CardService } from '@/components/fragments/CardService';
+import {
+  ProjectsSection,
+  CertificatesSection,
+  AboutSection,
+  SkillsSection,
+  DashboardSection,
+  KanbanSection,
+  HeroSection,
+} from './_components';
+import Footer from '@/components/layouts/Footer';
 
 export default function HomePage() {
   return (
@@ -8,8 +18,8 @@ export default function HomePage() {
       <AboutSection />
       <SkillsSection />
       <DashboardSection />
-      {/* <CertificatesSection /> */}
       <ProjectsSection />
+      <Footer />
     </main>
   );
 }
