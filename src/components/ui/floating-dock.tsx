@@ -82,7 +82,7 @@ const FloatingDockMobile = ({ items, className }: { items: Items[]; className?: 
           </motion.div>
         )}
       </AnimatePresence>
-      <button onClick={() => setOpen(!open)} className="flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-lg border">
+      <button onClick={() => setOpen(!open)} className="flex h-12 w-10 items-center justify-center rounded-full bg-card shadow-lg border">
         {/* TODO change icon to be better */}
         <IconList />
       </button>
@@ -98,7 +98,7 @@ const FloatingDockDesktop = ({ items, className }: { items: Items[]; className?:
       onMouseMove={e => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        'mx-auto hidden h-16 px-4 pb-3 items-end gap-2 rounded-3xl bg-background/25 backdrop-blur-[4px] md:flex shadow-lg border',
+        'mx-auto hidden max-h-16 p-4 items-end gap-2 rounded-3xl bg-background/25 backdrop-blur-[4px] md:flex shadow-lg border',
         className
       )}
     >

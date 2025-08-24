@@ -29,7 +29,7 @@ export const CardService = () => {
 
         <div className="flex">
           {/* Add icon contacts */}
-          <Button className="bg-highlight text-foreground hover:bg-highlight hover:text-foreground">
+          <Button className='bg-zinc-100 text-zinc-900 '>
             <RocketIcon />
             Start a Project
           </Button>
@@ -37,7 +37,7 @@ export const CardService = () => {
       </div>
 
       <div className="absolute -bottom-14 -right-36 rotate-6 z-0">
-        <span className="text-[20rem] leading-none select-none grayscale-100">✨</span>
+        <span className="text-[20rem] leading-none select-none grayscale-0">✨</span>
       </div>
     </SpotlightCard>
   );
