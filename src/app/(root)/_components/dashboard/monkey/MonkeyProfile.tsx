@@ -72,8 +72,8 @@ const MonkeyProfile = ({ data }: MonkeyProfileProps) => {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-4 *:text-center lg:col-span-4 h-full">
           {stats.map(item => (
             <div key={item.label} className="flex flex-col justify-center items-center gap-2 *:text-center">
-              <item.icon size={30} />
-              <Typography.Title variant="5/bold" className="font-mono">
+              <item.icon size={32} />
+              <Typography.Title variant="5/black" className="font-mono text-highlight">
                 {item.value}
               </Typography.Title>
               <Typography.Text variant="xs/normal">{item.label}</Typography.Text>

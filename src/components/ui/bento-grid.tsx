@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import Typography from './typography';
+import { IconType } from 'react-icons';
 
 interface KanbanGridProps extends ComponentPropsWithoutRef<'div'> {
   children: ReactNode;
@@ -14,7 +15,7 @@ interface KanbanCardProps extends ComponentPropsWithoutRef<'div'> {
   name: string;
   className: string;
   background: ReactNode;
-  Icon: React.ElementType;
+  Icon: IconType;
   description: string;
   href: string;
   cta: string;
@@ -22,7 +23,7 @@ interface KanbanCardProps extends ComponentPropsWithoutRef<'div'> {
 
 const KanbanGrid = ({ children, className, ...props }: KanbanGridProps) => {
   return (
-    <div className={cn('grid w-full auto-rows-[22rem] grid-cols-3 gap-2', className)} {...props}>
+    <div className={cn('grid w-full auto-rows-[24rem] grid-cols-3 gap-2', className)} {...props}>
       {children}
     </div>
   );
@@ -37,8 +38,8 @@ const KanbanCard = ({ name, className, background, Icon, description, href, cta,
     <div>{background}</div>
     <div className="p-4">
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-2 transition-all duration-300 lg:group-hover:-translate-y-10">
-        <Icon className="h-10 w-10 origin-left transform-gpu text-zinc-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
-        <Typography.Title variant="5/black">{name}</Typography.Title>
+        <Icon strokeWidth={2} className="h-10 w-10 origin-left transform-gpu text-zinc-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
+        <Typography.Title variant="6/black">{name}</Typography.Title>
         <Typography.Text variant="md/normal" className="max-w-lg">
           {description}
         </Typography.Text>

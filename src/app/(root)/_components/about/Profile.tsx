@@ -1,9 +1,26 @@
-import { ROLES } from "@/common/constants/about";
-import { Button } from "@/components/ui/button";
-import Typography from "@/components/ui/typography";
-import { ArrowDown, ArrowRight } from "lucide-react";
-import Image from "next/image";
-import { MdVerified } from "react-icons/md";
+import { ButtonCustom } from '@/components/fragments/ButtonCustom';
+import { MdVerified } from 'react-icons/md';
+import { Briefcase } from 'lucide-react';
+import Typography from '@/components/ui/typography';
+import Image from 'next/image';
+
+const BUTTONS = [
+  {
+    name: 'portfolio',
+    url: '#',
+    type: 'external',
+    label: 'View Portfolio',
+    icon: Briefcase,
+    reverse: true
+  },
+  {
+    name: 'projects',
+    url: '#',
+    type: 'internal',
+    label: 'See My Builds',
+    variant: 'secondary',
+  },
+];
 
 const Profile = () => {
   return (
@@ -14,7 +31,7 @@ const Profile = () => {
           alt="avatar"
           width={70}
           height={70}
-          className="h-80 w-full bg-cover object-cover rounded-2xl border-2"
+          className="h-80 w-full bg-cover object-cover rounded-2xl border-8"
           loading="lazy"
           unoptimized
         />
@@ -22,16 +39,6 @@ const Profile = () => {
 
       <div className="relative col-span-3">
         <div className="flex flex-col gap-2 mb-6">
-          {/* <div className="flex gap-1 items-center">
-            {ROLES.map((item, index) => {
-              return (
-                <Typography.Text key={index} variant="xs/normal" className={`${item.color} rounded px-4 py-1.5 flex items-center gap-2`}>
-                  <item.icon size={16} />
-                  {item.label}
-                </Typography.Text>
-              );
-            })}
-          </div> */}
           <Typography.Title variant="2/black" className="flex items-center gap-2">
             <span>Fajar Fathurrahman</span> <MdVerified size={24} className="text-blue-500 hidden sm:block" />
           </Typography.Title>
@@ -42,12 +49,20 @@ const Profile = () => {
         </div>
 
         <div className="flex sm:items-center flex-col sm:flex-row gap-2">
-          <Button>
-            See Portfolio! <ArrowRight />
-          </Button>
-          <Button variant={'outline'}>
-            Whats i created! <ArrowDown />
-          </Button>
+          {BUTTONS.map(item => {
+            return (
+              <ButtonCustom
+                key={item.name}
+                type={item.type as 'external' | 'internal'}
+                url={item.url}
+                icon={item.icon}
+                variant={item.variant as any}
+                reverse={item.reverse}
+              >
+                {item.label}
+              </ButtonCustom>
+            );
+          })}
         </div>
       </div>
     </div>

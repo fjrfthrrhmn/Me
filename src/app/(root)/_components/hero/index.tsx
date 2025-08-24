@@ -1,9 +1,11 @@
-import { STACKS_BUILT } from '@/common/constants/hero';
+'use client';
+import { BUTTONS, STACKS_BUILT } from '@/common/constants/hero';
 import { LinkPreview } from '@/components/fragments/LinkPreview';
-import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/main';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { motion } from 'motion/react';
+import { ButtonCustom } from '@/components/fragments/ButtonCustom';
 import Typography from '@/components/ui/typography';
+import { ANIMATES, TRANSITIONS } from '@/motion';
 
 const Hero = () => {
   return (
@@ -19,23 +21,35 @@ const Hero = () => {
           every detail.
         </Typography.Text>
 
-        <div className="flex flex-col sm:flex-row items-center gap-2">
-          <Button>
-            <Sparkles />
-            See Portfolio
-          </Button>
-          <Button variant="secondary">
-            Read Me More
-            <ArrowRight />
-          </Button>
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          {BUTTONS.map((item, index) => {
+            return (
+              <ButtonCustom key={index} url={item.url} variant={item.variant as any} icon={item.icon} type={item.type as any}>
+                {item.text}
+              </ButtonCustom>
+            );
+          })}
         </div>
       </div>
 
       <div className="mt-32 flex-wrap flex items-center justify-center gap-2">
         {STACKS_BUILT.map(({ url, icon: Icon }, index) => (
-          <LinkPreview key={index} url={url} className="group p-2 sm:p-4 rounded-2xl border bg-card select-none shadow-md transition">
-            <Icon size={24} className='opacity-15 group-hover:opacity-100 transition duration-300' />
-          </LinkPreview>
+          <motion.div
+            key={index}
+            className="group p-2 rounded-2xl border bg-card select-none shadow-md transition"
+            variants={ANIMATES.blurDown}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              ...TRANSITIONS.springSmooth,
+              delay: index * 0.15,
+            }}
+          >
+            <LinkPreview url={url}>
+              <Icon size={28} className="opacity-25 group-hover:opacity-100 transition duration-300" />
+            </LinkPreview>
+          </motion.div>
         ))}
       </div>
     </Container>

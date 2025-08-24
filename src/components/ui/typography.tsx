@@ -76,6 +76,7 @@ const TextStyles = cva(['leading-normal text-pretty text-paragraph'], {
       medium: 'font-medium',
       semibold: 'font-semibold',
       bold: 'font-bold',
+      black: 'font-black',
     },
   },
 });

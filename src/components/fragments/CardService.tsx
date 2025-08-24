@@ -17,7 +17,7 @@ export const CardService = () => {
         <div>
           <Typography.Title variant="2/black" className="flex gap-2">
             Let’s Create{' '}
-            <PointerHighlight>
+            <PointerHighlight rectangleClassName='border-zinc-100'>
               <span className=''>Something</span>
             </PointerHighlight>
           </Typography.Title>

@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { motion } from 'motion/react';
 import Typography from '@/components/ui/typography';
+import { ANIMATES, TRANSITIONS } from '@/motion';
 
 const SkillList = ({ data }: { data: SkillItemProps[] }) => {
   return (
@@ -14,13 +15,13 @@ const SkillList = ({ data }: { data: SkillItemProps[] }) => {
           <motion.div
             key={item.name}
             title={item.name}
-            initial={{ opacity: 0, y: 30, filter: 'blur(12px)' }}
-            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            variants={ANIMATES.blurDown}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true, amount: 0.2 }}
             transition={{
-              duration: 0.5,
+              ...TRANSITIONS.fadeSlow,
               delay: index * 0.15,
-              ease: 'easeOut',
             }}
           >
             <CardCustom

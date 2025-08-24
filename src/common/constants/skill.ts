@@ -226,12 +226,4 @@ export const PRODUCTIVITY_TOOLS: ToolItemProps[] = [
     desc: 'Note taking',
     category: 'Organization',
   },
-  {
-    name: 'Zoom',
-    icon: SiZoom,
-    textColor: 'text-blue-600',
-    bgColor: 'bg-blue-600/10',
-    desc: 'Video meetings',
-    category: 'Communication',
-  },
 ];

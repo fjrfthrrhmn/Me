@@ -1,3 +1,4 @@
+import { Sparkles } from 'lucide-react';
 import { IconType } from 'react-icons';
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiVercel } from 'react-icons/si';
 
@@ -33,5 +34,22 @@ export const STACKS_BUILT: StacksBuiltProps[] = [
     src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/images/ui/vercel-icon.svg',
     url: 'https://vercel.com/',
     icon: SiVercel,
+  },
+];
+
+export const BUTTONS = [
+  {
+    url: '#contact',
+    type: 'internal',
+    text: 'Lets Work Together',
+    icon: Sparkles,
+    reverse: true,
+    variant: 'default',
+  },
+  {
+    url: '#projects',
+    type: 'internal',
+    text: 'See My Work',
+    variant: 'secondary',
   },
 ];

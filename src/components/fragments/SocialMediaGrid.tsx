@@ -101,7 +101,7 @@ export const SocialAccountsGrid = () => {
 
             {/* content */}
             <div className="z-10 relative flex flex-col justify-between gap-2 h-full *:text-white">
-              <Typography.Text variant="md/bold">{title}</Typography.Text>
+              <Typography.Text variant="md/black">{title}</Typography.Text>
               <Typography.Text variant="xs/normal">{description}</Typography.Text>
 
               <div className="flex justify-between items-center mt-2">
